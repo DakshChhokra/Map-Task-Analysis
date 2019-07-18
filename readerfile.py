@@ -68,7 +68,5 @@ pickle.dump( goal17, open( "cleanedGoalDirectory/goal17.p", "wb" ) );
 pickle.dump( goal18, open( "cleanedGoalDirectory/goal18.p", "wb" ) );
 
 
-print("DONE MOFO");
-
 
 

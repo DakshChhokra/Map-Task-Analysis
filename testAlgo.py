@@ -1,5 +1,6 @@
 import numpy as np;
 import math;
+import sys;
 
 def distance(xi,xii,yi,yii):
     sq1 = (xi-xii)*(xi-xii)
@@ -25,7 +26,7 @@ def centeroidnp(arr):
 def break_into_segments(array):
     length = len(array);
     totalDistance = get_length(array);
-    segmentedDistance = totalDistance/10;
+    segmentedDistance = totalDistance/5;
     arrayOfCentroidPoints = [];
     for i in range(10):
         arrayOfCentroidPoints.append([]);
@@ -35,7 +36,11 @@ def break_into_segments(array):
     current_point = array[0];
     for element in array:
         currentDistance += distance(element[0], current_point[0], element[1], current_point[1]);
+        print("element", element);
+        print("currentDistance", currentDistance);
         if(currentDistance > segmentedDistance):
+            print("arrayOfCentroidPoints[counter]", arrayOfCentroidPoints[counter]);
+            print("counter", counter);
             counter+= 1;
             currentDistance = 0;
 
@@ -46,3 +51,18 @@ def break_into_segments(array):
         arrayOfMeans.append(centeroidnp(centroidArray));
     return arrayOfMeans;
 
+testArray = []
+for i in range(20):
+    currentArray = [0, (5 * i)];
+    testArray.append(currentArray);
+
+print(testArray);
+print("length of goal Array is: " + str(get_length(testArray)));
+print("The size of goal array is " + str(len(testArray)));
+print("Threshold is " + str(95/5));
+returned = break_into_segments(testArray);
+print(returned);
+
+
+
+sys.stdout.flush()
