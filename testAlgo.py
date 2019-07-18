@@ -6,6 +6,16 @@ def distance(xi,xii,yi,yii):
     sq2 = (yi-yii)*(yi-yii)
     return math.sqrt(sq1 + sq2)
 
+def get_length(array):
+    length_of_array = 0;
+    current_x = array[0][1];
+    current_y = array[0][1]
+    for arr1_elements in array:
+        length_of_array += distance(current_x, arr1_elements[0], current_y, arr1_elements[1]);
+        current_x = arr1_elements[0];
+        current_y = arr1_elements[1];
+    return  length_of_array;
+
 def centeroidnp(arr):
     length = arr.shape[0]
     sum_x = np.sum(arr[:, 0])

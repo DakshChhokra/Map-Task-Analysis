@@ -47,25 +47,25 @@ goal4 = [[737.0, -217.0], [731.0, -217.0], [723.0, -217.0], [719.0, -217.0], [71
 goal6 = [[197.0, -57.0], [197.0, -64.0], [197.0, -70.0], [197.0, -77.0], [197.0, -81.0], [197.0, -88.0], [197.0, -93.0], [199.0, -104.0], [199.0, -110.0], [201.0, -121.0], [203.0, -126.0], [207.0, -138.0], [209.0, -142.0], [210.0, -149.0], [211.0, -152.0], [215.0, -158.0], [217.0, -158.0], [218.0, -161.0], [219.0, -162.0], [227.0, -165.0], [235.0, -170.0], [239.0, -172.0], [245.0, -174.0], [249.0, -176.0], [253.0, -177.0], [255.0, -178.0], [261.0, -178.0], [263.0, -178.0], [271.0, -178.0], [275.0, -178.0], [283.0, -178.0], [289.0, -178.0], [299.0, -178.0], [301.0, -178.0], [305.0, -178.0], [306.0, -178.0], [314.0, -178.0], [317.0, -178.0], [323.0, -178.0], [329.0, -178.0], [335.0, -178.0], [339.0, -178.0], [346.0, -178.0], [350.0, -178.0], [355.0, -178.0], [359.0, -178.0], [365.0, -178.0], [367.0, -178.0], [373.0, -178.0], [374.0, -178.0], [375.0, -178.0], [378.0, -177.0], [381.0, -173.0], [382.0, -172.0], [383.0, -168.0], [385.0, -165.0], [386.0, -160.0], [387.0, -156.0], [389.0, -150.0], [390.0, -146.0], [391.0, -140.0], [394.0, -134.0], [395.0, -128.0], [397.0, -125.0], [397.0, -122.0], [398.0, -114.0], [399.0, -112.0], [402.0, -108.0], [402.0, -106.0], [402.0, -105.0], [405.0, -100.0], [406.0, -97.0], [410.0, -93.0], [411.0, -93.0], [414.0, -92.0], [415.0, -92.0], [417.0, -90.0], [422.0, -89.0], [423.0, -89.0], [425.0, -89.0], [437.0, -88.0], [441.0, -88.0], [450.0, -86.0], [453.0, -86.0], [459.0, -86.0], [462.0, -86.0], [467.0, -86.0], [470.0, -86.0], [479.0, -86.0], [482.0, -86.0], [489.0, -86.0], [491.0, -86.0], [498.0, -86.0], [501.0, -86.0], [509.0, -85.0], [514.0, -84.0], [519.0, -84.0], [523.0, -84.0], [533.0, -84.0], [537.0, -85.0], [547.0, -85.0], [553.0, -85.0], [561.0, -85.0], [565.0, -85.0], [569.0, -85.0], [570.0, -85.0], [571.0, -85.0], [575.0, -85.0], [578.0, -86.0], [579.0, -88.0], [583.0, -88.0], [590.0, -88.0], [594.0, -89.0], [598.0, -89.0], [601.0, -89.0], [606.0, -89.0], [609.0, -89.0], [614.0, -89.0], [617.0, -89.0], [623.0, -90.0], [627.0, -92.0], [633.0, -93.0], [635.0, -96.0], [639.0, -97.0], [642.0, -97.0], [645.0, -98.0], [646.0, -100.0], [649.0, -101.0], [649.0, -102.0], [657.0, -102.0], [661.0, -104.0], [667.0, -105.0], [669.0, -105.0], [671.0, -106.0], [675.0, -108.0], [678.0, -109.0], [679.0, -110.0], [681.0, -114.0], [681.0, -116.0], [682.0, -120.0], [682.0, -121.0], [682.0, -126.0], [682.0, -129.0], [682.0, -133.0], [682.0, -136.0], [682.0, -140.0], [682.0, -144.0], [682.0, -149.0], [682.0, -153.0], [682.0, -156.0], [682.0, -164.0], [685.0, -169.0], [686.0, -178.0], [687.0, -182.0], [690.0, -189.0], [691.0, -194.0], [694.0, -202.0], [697.0, -209.0], [698.0, -218.0], [698.0, -220.0], [699.0, -224.0], [702.0, -232.0], [702.0, -233.0], [702.0, -236.0], [703.0, -242.0], [703.0, -244.0], [705.0, -248.0], [705.0, -253.0], [705.0, -254.0], [705.0, -257.0], [705.0, -262.0], [705.0, -266.0], [705.0, -269.0], [705.0, -270.0], [705.0, -273.0], [705.0, -281.0], [705.0, -286.0], [705.0, -293.0], [705.0, -298.0], [705.0, -304.0], [703.0, -309.0], [702.0, -314.0], [701.0, -318.0], [699.0, -322.0], [698.0, -325.0], [695.0, -328.0], [694.0, -329.0], [691.0, -332.0], [690.0, -332.0], [686.0, -334.0], [683.0, -336.0], [679.0, -336.0], [675.0, -336.0], [670.0, -336.0], [666.0, -336.0], [662.0, -334.0], [659.0, -334.0], [655.0, -333.0], [654.0, -333.0], [649.0, -332.0], [647.0, -330.0], [645.0, -330.0], [643.0, -329.0], [638.0, -329.0], [633.0, -329.0], [629.0, -329.0], [629.0, -328.0]]
 
 
-#
-# pickle.dump( goal1, open( "cleanedGoalDirectory/goal1.p", "wb" ) );
-# pickle.dump( goal2, open( "cleanedGoalDirectory/goal2.p", "wb" ) );
-# pickle.dump( goal3, open( "cleanedGoalDirectory/goal3.p", "wb" ) );
-# pickle.dump( goal4, open( "cleanedGoalDirectory/goal4.p", "wb" ) );
-# pickle.dump( goal5, open( "cleanedGoalDirectory/goal5.p", "wb" ) );
-# pickle.dump( goal6, open( "cleanedGoalDirectory/goal6.p", "wb" ) );
-# pickle.dump( goal7, open( "cleanedGoalDirectory/goal7.p", "wb" ) );
-# pickle.dump( goal8, open( "cleanedGoalDirectory/goal8.p", "wb" ) );
-# pickle.dump( goal9, open( "cleanedGoalDirectory/goal9.p", "wb" ) );
-# pickle.dump( goal10, open( "cleanedGoalDirectory/goal10.p", "wb" ) );
-# pickle.dump( goal11, open( "cleanedGoalDirectory/goal11.p", "wb" ) );
-# pickle.dump( goal12, open( "cleanedGoalDirectory/goal12.p", "wb" ) );
-# pickle.dump( goal13, open( "cleanedGoalDirectory/goal13.p", "wb" ) );
-# pickle.dump( goal14, open( "cleanedGoalDirectory/goal14.p", "wb" ) );
-# pickle.dump( goal15, open( "cleanedGoalDirectory/goal15.p", "wb" ) );
-# pickle.dump( goal16, open( "cleanedGoalDirectory/goal16.p", "wb" ) );
-# pickle.dump( goal17, open( "cleanedGoalDirectory/goal17.p", "wb" ) );
-# pickle.dump( goal18, open( "cleanedGoalDirectory/goal18.p", "wb" ) );
+
+pickle.dump( goal1, open( "cleanedGoalDirectory/goal1.p", "wb" ) );
+pickle.dump( goal2, open( "cleanedGoalDirectory/goal2.p", "wb" ) );
+pickle.dump( goal3, open( "cleanedGoalDirectory/goal3.p", "wb" ) );
+pickle.dump( goal4, open( "cleanedGoalDirectory/goal4.p", "wb" ) );
+pickle.dump( goal5, open( "cleanedGoalDirectory/goal5.p", "wb" ) );
+pickle.dump( goal6, open( "cleanedGoalDirectory/goal6.p", "wb" ) );
+pickle.dump( goal7, open( "cleanedGoalDirectory/goal7.p", "wb" ) );
+pickle.dump( goal8, open( "cleanedGoalDirectory/goal8.p", "wb" ) );
+pickle.dump( goal9, open( "cleanedGoalDirectory/goal9.p", "wb" ) );
+pickle.dump( goal10, open( "cleanedGoalDirectory/goal10.p", "wb" ) );
+pickle.dump( goal11, open( "cleanedGoalDirectory/goal11.p", "wb" ) );
+pickle.dump( goal12, open( "cleanedGoalDirectory/goal12.p", "wb" ) );
+pickle.dump( goal13, open( "cleanedGoalDirectory/goal13.p", "wb" ) );
+pickle.dump( goal14, open( "cleanedGoalDirectory/goal14.p", "wb" ) );
+pickle.dump( goal15, open( "cleanedGoalDirectory/goal15.p", "wb" ) );
+pickle.dump( goal16, open( "cleanedGoalDirectory/goal16.p", "wb" ) );
+pickle.dump( goal17, open( "cleanedGoalDirectory/goal17.p", "wb" ) );
+pickle.dump( goal18, open( "cleanedGoalDirectory/goal18.p", "wb" ) );
 
 
 print("DONE MOFO");
