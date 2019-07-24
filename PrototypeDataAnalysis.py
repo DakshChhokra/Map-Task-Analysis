@@ -10,6 +10,24 @@ def distance(xi,xii,yi,yii):
     sq2 = (yi-yii)*(yi-yii)
     return math.sqrt(sq1 + sq2)
 
+
+def compare_two_centroid_arrays(arr1, arr2):
+    final_array = [];
+    for x in range(len(arr1)):
+        if (arr1[x] is not None) and (arr2[x] is not None):
+            final_array.append(distance(arr1[x][0], arr2[x][0], arr1[x][1], arr2[x][1]));
+    return sum(final_array)/len(final_array);
+
+def sum_given_array(arr):
+    if len(arr) == 0 or arr is None:
+        return 0;
+    else:
+        returnable = 0.0;
+        for x in range(len(arr)):
+            if x != 0:
+                returnable += distance(arr[x][0], arr[x-1][0], arr[x][1], arr[x-1][1]);
+        return returnable;
+
 def compare_two_paths(goal, player):
     small_distance_array = []
     for player_point in player:
@@ -20,6 +38,26 @@ def compare_two_paths(goal, player):
                 current_smallest_distance = current_distance;
         small_distance_array.append(current_smallest_distance);
     return sum(small_distance_array)/len(small_distance_array);
+
+
+def compare_two_path_with_deletions(arr1, arr2):
+    goal = arr1[:]
+    player = arr2[:]
+    small_distance_array = [];
+    for player_point in player:
+        current_smallest_distance = sys.maxsize;
+        current_smallest_point = None;
+        if len(goal) != 0:
+            for goal_point in goal:
+                current_distance = distance(player_point[0], goal_point[0], player_point[1], goal_point[1]);
+                if current_distance < current_smallest_distance:
+                    current_smallest_distance = current_distance;
+                    current_smallest_point = goal_point;
+            small_distance_array.append(current_smallest_distance);
+            goal.remove(current_smallest_point);
+        else:
+            break;
+    return sum(small_distance_array) / len(small_distance_array);
 
 def get_length(array):
     length_of_array = 0;
@@ -47,15 +85,6 @@ def get_length(array):
     return  length_of_array;
 
 def centeroid_python(data):
-    #Remove empty arrays. terrible idea in practice
-
-
-    # print("big boii")
-    # print(data);
-    # for x in data:
-    #     print("small boi")
-    #     print(x);
-
     if (len(data) != 0):
         x, y = zip(*data)
         l = len(x)
@@ -66,30 +95,49 @@ def break_into_segments(array):
     length = len(array);
     totalDistance = get_length(array);
     segmentedDistance = totalDistance/10;
+    print("Cutoff is: " + str(segmentedDistance));
     arrayOfCentroidPoints = [];
-    for i in range(10):
+    for i in range(15):
         arrayOfCentroidPoints.append([]);
 
     counter = 0;
     currentDistance = 0;
     current_point = array[0];
     for element in array:
-        currentDistance += distance(element[0], current_point[0], element[1], current_point[1]);
-        if currentDistance > segmentedDistance:
-            print("arrayOfCentroidPoints[counter]", arrayOfCentroidPoints[counter]);
-            print("counter", counter);
-            print("currentDistance", currentDistance);
+        added_distance = distance(element[0], current_point[0], element[1], current_point[1]);
+        tempDistance = currentDistance + added_distance;
+        if tempDistance > segmentedDistance:
+            # print("counter", counter);
+            # print("length of current segment is: " + str(currentDistance));
+            # print("arrayOfCentroidPoints[counter]", arrayOfCentroidPoints[counter]);
             counter+= 1;
             currentDistance = 0;
 
+        currentDistance += added_distance;
         arrayOfCentroidPoints[counter].append(element);
-
         current_point = element;
 
+    # print("************************************************************************************************************");
+    l = 0;
+    # print("The segmented arrays are")
+    for x in arrayOfCentroidPoints:
+        print(l, x, sum_given_array(x));
+        # if len(x) == 0:
+        #     arrayOfCentroidPoints.pop(l);
+        #     print("removed");
+        l+=1;
+    # print("Final length of this is: " + str(len(arrayOfCentroidPoints)));
+    # print("************************************************************************************************************");
+
     array_of_means = []
-    print("full array", arrayOfCentroidPoints);
     for centroidArray in arrayOfCentroidPoints:
         array_of_means.append(centeroid_python(centroidArray));
+
+    # print("Array of means");
+    # m = 0;
+    # for x in array_of_means:
+    #     print(m, x);
+    #     m+=1;
 
     return array_of_means;
 def check_terminal_position(p1, p2):
@@ -164,16 +212,45 @@ for round_number in range(len(array_of_rounds)):
         print("Checking end Point");
         ep = check_terminal_position(goalArray[-1], player_array_current_round[-1]);
 
-        cn = compare_two_paths(goalArray, player_array_current_round);
-        print("Closeness number is " + str(cn));
+        compare_path = compare_two_paths(goalArray, player_array_current_round);
+        print("Closeness number is " + str(compare_path));
 
-        if sp and ep and (cn < 75):
+        compare_path_with_deletions = compare_two_path_with_deletions(goalArray, player_array_current_round);
+        print("Closeness number when comparing with advanced deletions is " + str(compare_path_with_deletions));
+
+        centroid_number = compare_two_centroid_arrays(centroid_goal, centroid_player);
+        print("Centroid closeness number is " + str(centroid_number));
+
+
+        print("--------------------------------------------------------------------------------------------")
+        print("--------------------------------------------------------------------------------------------")
+        print("Start Point and End Point Analysis with a tolerance of 75")
+        if sp and ep:
             print("SIMILAR");
         else:
             print("NOT SIMILAR");
-
-        Extractor.plot_array(goalArray, player_array_current_round);
-    print("**************");
+        print("--------------------------------------------------------------------------------------------")
+        print("Basic Point matching analysis with a tolerance of 50");
+        if compare_path < 50:
+            print("SIMILAR");
+        else:
+            print("NOT SIMILAR");
+        print("--------------------------------------------------------------------------------------------")
+        print("Slightly advanced Point matching analysis with a tolerance of 40");
+        if compare_path_with_deletions < 40:
+            print("SIMILAR");
+        else:
+            print("NOT SIMILAR");
+        print("--------------------------------------------------------------------------------------------")
+        print("Centroid analysis with a tolerance of 40");
+        if centroid_number < 40:
+            print("SIMILAR");
+        else:
+            print("NOT SIMILAR");
+        print("--------------------------------------------------------------------------------------------")
+        print("--------------------------------------------------------------------------------------------")
+        Extractor.plot_array(goalArray, player_array_current_round, centroid_goal, centroid_player);
+    print("***************************************************************************");
 
 
 
