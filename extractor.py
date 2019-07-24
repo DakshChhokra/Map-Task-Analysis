@@ -67,7 +67,7 @@ class Extractor:
 
 
     @staticmethod
-    def plot_array(plottable_array_1, plottable_array_2):
+    def plot_array(plottable_array_1, plottable_array_2,): #centroid1, centroid2
 
         plt.scatter(plottable_array_1[0][0], plottable_array_1[0][1], color="green");
         plt.scatter(plottable_array_1[-1][0], plottable_array_1[-1][1], color="red");
@@ -79,6 +79,10 @@ class Extractor:
         data = np.array(plottable_array_2)
         plt.plot(data[:, 0], data[:, 1])
 
+        # for x in centroid1:
+        #     plt.scatter(x[0], x[1], color="orange");
+        # for x in centroid2:
+        #     plt.scatter(x[0], x[1], color="purple");
 
         plt.show()
 
@@ -111,7 +115,7 @@ class Extractor:
 
     @staticmethod
     def get_number(my_str):
-        return int(''.join(list(filter(str.isdigit, my_str.split(" ")[1]))));
+        return int((''.join(list(filter(str.isdigit, my_str.split(" ")[1])))));
 
 
 

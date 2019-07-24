@@ -17,18 +17,17 @@ def get_length(array):
         current_y = arr1_elements[1];
     return  length_of_array;
 
-def centeroidnp(arr):
-    length = arr.shape[0]
-    sum_x = np.sum(arr[:, 0])
-    sum_y = np.sum(arr[:, 1])
-    return sum_x/length, sum_y/length
+def centeroid_python(data):
+    x, y = zip(*data)
+    l = len(x)
+    return sum(x) / l, sum(y) / l
 
 def break_into_segments(array):
     length = len(array);
     totalDistance = get_length(array);
     segmentedDistance = totalDistance/5;
     arrayOfCentroidPoints = [];
-    for i in range(10):
+    for i in range(5):
         arrayOfCentroidPoints.append([]);
 
     counter = 0;
@@ -37,18 +36,20 @@ def break_into_segments(array):
     for element in array:
         currentDistance += distance(element[0], current_point[0], element[1], current_point[1]);
         print("element", element);
-        print("currentDistance", currentDistance);
-        if(currentDistance > segmentedDistance):
+        if currentDistance > segmentedDistance:
             print("arrayOfCentroidPoints[counter]", arrayOfCentroidPoints[counter]);
             print("counter", counter);
+            print("currentDistance", currentDistance);
             counter+= 1;
             currentDistance = 0;
 
         arrayOfCentroidPoints[counter].append(element);
 
+        current_point = element;
+
     arrayOfMeans = []
     for centroidArray in arrayOfCentroidPoints:
-        arrayOfMeans.append(centeroidnp(centroidArray));
+        arrayOfMeans.append(centeroid_python(centroidArray));
     return arrayOfMeans;
 
 testArray = []

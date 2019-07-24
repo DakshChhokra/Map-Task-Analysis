@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4684b001-90ad-4ed0-81af-8aee4a8d5dbc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readerfile.py" afterPath="$PROJECT_DIR$/readerfile.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrototypeDataAnalysis.py" afterPath="$PROJECT_DIR$/PrototypeDataAnalysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/extractor.py" afterPath="$PROJECT_DIR$/extractor.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testAlgo.py" afterPath="$PROJECT_DIR$/testAlgo.py" />
     </list>
     <ignored path="mapTaskAnalysis.iws" />
@@ -24,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PrototypeDataAnalysis.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PrototypeDataAnalysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PrototypeDataAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -36,24 +37,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testAlgo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testAlgo.py">
+      <file leaf-file-name="extractor.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
+            <state relative-caret-position="391">
+              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#2739#2780#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="idea.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/idea.properties">
+      <file leaf-file-name="goal_key_4.20.2019_20.24.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/goal_key_4.20.2019_20.24.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="90">
+              <caret line="6" column="48" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coordinates_4.20.2019_20.24.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coordinates_4.20.2019_20.24.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="23539" column="48" selection-start-line="23539" selection-start-column="42" selection-end-line="23539" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testAlgo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testAlgo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,23 +105,26 @@
         <option value="$PROJECT_DIR$/goal_key_KEY.txt" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/coordinates_2.2.2019_11.43.txt" />
-        <option value="$PROJECT_DIR$/coordinates_KEY.txt" />
         <option value="$PROJECT_DIR$/test.txt" />
         <option value="$PROJECT_DIR$/attempt2.py" />
-        <option value="$PROJECT_DIR$/actualData/goal_key_3.28.2019_9.52.txt" />
-        <option value="$PROJECT_DIR$/actualData/coordinates_3.28.2019_9.52.txt" />
         <option value="$PROJECT_DIR$/Extractor.py" />
-        <option value="$PROJECT_DIR$/extractor.py" />
-        <option value="$PROJECT_DIR$/PrototypeDataAnalysis.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/readerfile.py" />
         <option value="$APPLICATION_CONFIG_DIR$/idea.properties" />
         <option value="$PROJECT_DIR$/testAlgo.py" />
+        <option value="$PROJECT_DIR$/coordinates_KEY.txt" />
+        <option value="$PROJECT_DIR$/actualData/goal_key_3.28.2019_9.52.txt" />
+        <option value="$PROJECT_DIR$/actualData/coordinates_3.28.2019_9.52.txt" />
+        <option value="$PROJECT_DIR$/goal_key_6.17.2019_21.13.txt" />
+        <option value="$PROJECT_DIR$/coordinates_6.17.2019_21.13.txt" />
+        <option value="$PROJECT_DIR$/coordinates_4.20.2019_20.24.txt" />
+        <option value="$PROJECT_DIR$/goal_key_4.20.2019_20.24.txt" />
+        <option value="$PROJECT_DIR$/extractor.py" />
+        <option value="$PROJECT_DIR$/PrototypeDataAnalysis.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -128,6 +154,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -146,24 +173,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapTaskAnalysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapTaskAnalysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actualData" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,17 +183,17 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/actualData" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/actualData" />
       <recent name="$PROJECT_DIR$/goalDirectory" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/actualData" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.testAlgo">
+  <component name="RunManager" selected="Python.PrototypeDataAnalysis">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -410,9 +422,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.testAlgo" />
-        <item index="1" class="java.lang.String" itemvalue="Python.readerfile" />
-        <item index="2" class="java.lang.String" itemvalue="Python.PrototypeDataAnalysis" />
+        <item index="0" class="java.lang.String" itemvalue="Python.PrototypeDataAnalysis" />
+        <item index="1" class="java.lang.String" itemvalue="Python.testAlgo" />
+        <item index="2" class="java.lang.String" itemvalue="Python.readerfile" />
         <item index="3" class="java.lang.String" itemvalue="Python.attempt2" />
         <item index="4" class="java.lang.String" itemvalue="Python.main" />
       </list>
@@ -440,7 +452,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14722222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -482,11 +494,31 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/PrototypeDataAnalysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testAlgo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PrototypeDataAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -513,7 +545,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="false" />
-            <element signature="e#3820#3889#0" expanded="false" />
+            <element signature="e#2739#2780#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -526,7 +558,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="false" />
-            <element signature="e#3820#3889#0" expanded="false" />
+            <element signature="e#2739#2780#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -548,8 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordinates_6.17.2019_21.13.txt" />
-    <entry file="file://$PROJECT_DIR$/coordinates_4.20.2019_20.24.txt" />
     <entry file="file://$PROJECT_DIR$/save.p" />
     <entry file="file://$PROJECT_DIR$/goalDirectory/goal1.p" />
     <entry file="file://$PROJECT_DIR$/goalDirectory/goal2.p" />
@@ -563,47 +593,10 @@
     <entry file="file://$PROJECT_DIR$/goalDirectory/goal10.p" />
     <entry file="file://$PROJECT_DIR$/test.txt" />
     <entry file="file://$PROJECT_DIR$/cleanedGoalDirectory/goal10.p" />
-    <entry file="file://$PROJECT_DIR$/goal_key_KEY.txt" />
-    <entry file="file://$PROJECT_DIR$/extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-            <element signature="e#3820#3889#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coordinates_KEY.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2565">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actualData/coordinates_3.28.2019_9.52.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/actualData/goal_key_3.28.2019_9.52.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,29 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PrototypeDataAnalysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testAlgo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -641,7 +611,100 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testAlgo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actualData/coordinates_3.28.2019_9.52.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="149882" column="84" selection-start-line="149882" selection-start-column="84" selection-end-line="149882" selection-end-column="84" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/actualData/goal_key_3.28.2019_9.52.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/goal_key_6.17.2019_21.13.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/goal_key_KEY.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinates_6.17.2019_21.13.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="19999" column="10" selection-start-line="19999" selection-start-column="0" selection-end-line="20000" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinates_KEY.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="19999" column="6" selection-start-line="19999" selection-start-column="0" selection-end-line="20000" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinates_4.20.2019_20.24.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="23539" column="48" selection-start-line="23539" selection-start-column="42" selection-end-line="23539" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/goal_key_4.20.2019_20.24.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <element signature="e#2739#2780#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PrototypeDataAnalysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="159" column="43" selection-start-line="159" selection-start-column="43" selection-end-line="159" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
