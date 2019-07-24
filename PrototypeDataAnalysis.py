@@ -185,11 +185,11 @@ for round_number in range(len(array_of_rounds)):
         centroid_player = break_into_segments(player_array_current_round);
         print(centroid_player);
 
-
-
-    print("Advanced Closeness level is ")
     print('***************************************************************************')
-
+    print('***************************************************************************')
+    print("Starting Similarity Checks")
+    print('***************************************************************************')
+    print('***************************************************************************')
 
 
 
@@ -203,6 +203,9 @@ for round_number in range(len(array_of_rounds)):
 
         compare_path = compare_two_paths(goalArray, player_array_current_round);
         print("Closeness number is " + str(compare_path));
+
+        length_difference = abs(sum_given_array(goalArray) - sum_given_array(player_array_current_round));
+        print("Difference in length is: " + str(length_difference));
 
         compare_path_with_deletions = compare_two_path_with_deletions(goalArray, player_array_current_round);
         print("Closeness number when comparing with advanced deletions is " + str(compare_path_with_deletions));
@@ -235,9 +238,7 @@ for round_number in range(len(array_of_rounds)):
             print("NOT SIMILAR");
         print("--------------------------------------------------------------------------------------------")
         print("Basic length analysis with a tolerance of 150");
-        print(sum_given_array(goalArray));
-        print(sum_given_array(player_array_current_round));
-        if abs(sum_given_array(goalArray) - sum_given_array(player_array_current_round)) < 150:
+        if length_difference < 150:
             print("SIMILAR");
             scores += 0.5
         else:
