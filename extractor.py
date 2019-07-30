@@ -31,22 +31,27 @@ class Extractor:
         for i in range(len(file_reader)):
 
             single_line = file_reader[i];
-            round_number = self.get_number(single_line);
 
-            counter = 0;
-            for char in file_reader[i]:
-                if char == "(":
-                    coord_array = single_line[counter:(len(single_line) - 1)].split(",");
-                    x = (coord_array[0])[1:];
-                    y = (coord_array[1])[:-1]
+            if len(single_line) > 0 and "disconnected" not in single_line:
+                round_number = self.get_number(single_line);
 
-                    if x != "-1" and y != "-1" and x != "-" and y != "-" and self.check_prev(x, y, prev_x, prev_y, round_number):
-                        current_cood = [x, y];
-                        main_array[round_number].append(current_cood);
-                        prev_x[round_number] = x;
-                        prev_y[round_number] = y;
+                counter = 0;
+                for char in file_reader[i]:
+                    if char == "(":
+                        coord_array = single_line[counter:(len(single_line) - 1)].split(",");
+                        x = (coord_array[0])[1:];
+                        y = (coord_array[1])[:-1]
 
-                counter += 1;
+                        if x != "-1" and y != "-1" and x != "-" and y != "-" and self.check_prev(x, y, prev_x, prev_y,
+                                                                                                 round_number):
+                            current_cood = [x, y];
+                            main_array[round_number].append(current_cood);
+                            prev_x[round_number] = x;
+                            prev_y[round_number] = y;
+
+                    counter += 1;
+            else:
+                print("Line is empty");
 
 
 
@@ -67,7 +72,7 @@ class Extractor:
 
 
     @staticmethod
-    def plot_array(plottable_array_1, plottable_array_2, centroid1, centroid2):
+    def plot_array(plottable_array_1, plottable_array_2, centroid1, centroid2, nameOfImage):
 
         plt.scatter(plottable_array_1[0][0], plottable_array_1[0][1], color="green");
         plt.scatter(plottable_array_1[-1][0], plottable_array_1[-1][1], color="red");
@@ -89,7 +94,8 @@ class Extractor:
                 plt.scatter(x[0], x[1], color="purple");
             p+=1
 
-        plt.show()
+        plt.savefig("analysisImage/" + nameOfImage + ".png", dpi=100);
+        # plt.show()
 
 
         # for i in range(len(plottable_array_1)):

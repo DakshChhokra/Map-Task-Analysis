@@ -4,6 +4,8 @@ from extractor import Extractor;
 import math;
 import sys;
 import numpy as np;
+from os import listdir
+from os.path import isfile, join
 
 def distance(xi,xii,yi,yii):
     sq1 = (xi-xii)*(xi-xii)
@@ -132,139 +134,170 @@ def break_into_segments(array):
 def check_terminal_position(p1, p2):
     distance_point = distance(p1[0], p2[0], p1[1], p2[1]);
     print("distance  between terminal points is " + str(distance_point));
-    return  distance_point < 50;
+    return  distance_point;
 
+goalKeyAddress = "goal_key_4.20.2019_20.24.txt";
+coordinateAddress = "coordinates_4.20.2019_20.24.txt";
+def mainAnalysis(goalKeyAddress, coordinateAddress):
+    file = open(goalKeyAddress, "r")
 
-file = open("goal_key_4.20.2019_20.24.txt", "r")
+    file_reader = file.readlines();
 
-file_reader = file.readlines();
+    array_of_rounds = [];
+    for singleLine in file_reader:
+        search_box_result = "";
+        try:
+            search_box_result = re.search('/goal(.*?)\?', singleLine).group(0);
+            search_box_result = search_box_result[1:-5];
+            array_of_rounds.append(search_box_result);
 
-array_of_rounds = [];
-for singleLine in file_reader:
-    search_box_result = "";
-    try:
-        search_box_result = re.search('/goal(.*?)\?', singleLine).group(0);
-        search_box_result = search_box_result[1:-5];
-        array_of_rounds.append(search_box_result);
+        except AttributeError:
+            search_box_result = singleLine;
 
-    except AttributeError:
-        search_box_result = singleLine;
+    player_object = Extractor(coordinateAddress);
+    player_array = player_object.return_extracted_array();
 
+    for round_number in range(len(array_of_rounds)):
+        address = "cleanedGoalDirectory/" + array_of_rounds[round_number] + ".p";
+        goalArray = pickle.load(open(address, "rb"));
+        player_array_current_round = player_array[round_number];
+        print("This is round " + str(round_number + 1));
+        print("The current goal is " + array_of_rounds[round_number]);
+        print(goalArray);
+        print("length of goal Array is: " + str(sum_given_array(goalArray)));
+        print("The size of goal array is " + str(len(goalArray)));
+        print(player_array_current_round);
 
-player_object = Extractor("coordinates_4.20.2019_20.24.txt");
-player_array = player_object.return_extracted_array();
-
-for round_number in range(len(array_of_rounds)):
-    address = "cleanedGoalDirectory/" + array_of_rounds[round_number] + ".p";
-    goalArray = pickle.load(open(address, "rb"));
-    player_array_current_round = player_array[round_number];
-    print("This is round " + str(round_number + 1));
-    print("The current goal is " + array_of_rounds[round_number]);
-    print(goalArray);
-    print("length of goal Array is: " + str(sum_given_array(goalArray)));
-    print("The size of goal array is " + str(len(goalArray)));
-    print(player_array_current_round);
-
-    if len(player_array_current_round) == 0:
-        print("Array is empty");
-    else:
-        print("length of player array is: " + str(sum_given_array(player_array_current_round)));
-        print("The size of player array is " + str(len(player_array_current_round)));
-
-    print('***************************************************************************')
-
-    print("Centroid Time");
-    print("Goal Array centroid are: ")
-    centroid_goal = break_into_segments(goalArray);
-    print(centroid_goal);
-    print("---------------------------------")
-    print("Player Array centroid are: ")
-    if len(player_array_current_round) == 0:
-        print("Array is empty and has centroid");
-    else:
-        centroid_player = break_into_segments(player_array_current_round);
-        print(centroid_player);
-
-    print('***************************************************************************')
-    print('***************************************************************************')
-    print("Starting Similarity Checks")
-    print('***************************************************************************')
-    print('***************************************************************************')
-
-
-
-
-    if len(player_array_current_round) > 1:
-        print("Checking start Point");
-        sp = check_terminal_position(goalArray[0], player_array_current_round[0]);
-
-        print("Checking end Point");
-        ep = check_terminal_position(goalArray[-1], player_array_current_round[-1]);
-
-        compare_path = compare_two_paths(goalArray, player_array_current_round);
-        print("Closeness number is " + str(compare_path));
-
-        length_difference = abs(sum_given_array(goalArray) - sum_given_array(player_array_current_round));
-        print("Difference in length is: " + str(length_difference));
-
-        compare_path_with_deletions = compare_two_path_with_deletions(goalArray, player_array_current_round);
-        print("Closeness number when comparing with advanced deletions is " + str(compare_path_with_deletions));
-
-        centroid_number = compare_two_centroid_arrays(centroid_goal, centroid_player);
-        print("Centroid closeness number is " + str(centroid_number));
-
-        scores = 0.0;
-        print("--------------------------------------------------------------------------------------------")
-        print("--------------------------------------------------------------------------------------------")
-        print("Start Point Analysis with a tolerance of 50")
-        if sp:
-            print("SIMILAR");
-            scores+=0.5
+        if len(player_array_current_round) == 0:
+            print("Array is empty");
         else:
-            print("NOT SIMILAR");
-        print("--------------------------------------------------------------------------------------------")
-        print("End Point Analysis with a tolerance of 50")
-        if ep:
-            print("SIMILAR");
-            scores += 0.5
+            print("length of player array is: " + str(sum_given_array(player_array_current_round)));
+            print("The size of player array is " + str(len(player_array_current_round)));
+
+        print('***************************************************************************')
+
+        print("Centroid Time");
+        print("Goal Array centroid are: ")
+        centroid_goal = break_into_segments(goalArray);
+        print(centroid_goal);
+        print("---------------------------------")
+        print("Player Array centroid are: ")
+        if len(player_array_current_round) == 0:
+            print("Array is empty and has centroid");
         else:
-            print("NOT SIMILAR");
-        print("--------------------------------------------------------------------------------------------")
-        print("Basic Point matching analysis with a tolerance of 50");
-        if compare_path < 50:
-            print("SIMILAR");
-            scores += 0.5
-        else:
-            print("NOT SIMILAR");
-        print("--------------------------------------------------------------------------------------------")
-        print("Basic length analysis with a tolerance of 150");
-        if length_difference < 150:
-            print("SIMILAR");
-            scores += 0.5
-        else:
-            print("NOT SIMILAR");
-        print("--------------------------------------------------------------------------------------------")
-        print("Slightly advanced Point matching analysis with a tolerance of 30");
-        if compare_path_with_deletions < 30:
-            print("SIMILAR");
-            scores += 1.0
-        else:
-            print("NOT SIMILAR");
-        print("--------------------------------------------------------------------------------------------")
-        print("Centroid analysis with a tolerance of 40");
-        if centroid_number < 40:
-            print("SIMILAR");
-            scores += 1.0;
+            centroid_player = break_into_segments(player_array_current_round);
+            print(centroid_player);
 
-        else:
-            print("NOT SIMILAR");
-        print("--------------------------------------------------------------------------------------------")
-        print("--------------------------------------------------------------------------------------------")
+        print('***************************************************************************')
+        print('***************************************************************************')
+        print("Starting Similarity Checks")
+        print('***************************************************************************')
+        print('***************************************************************************')
 
-        print("Final Similarity Score is: " + str(scores) + " / 4");
-        Extractor.plot_array(goalArray, player_array_current_round, centroid_goal, centroid_player);
-    print("***************************************************************************");
+        if len(player_array_current_round) > 1:
+            print("Checking start Point");
+            sp = check_terminal_position(goalArray[0], player_array_current_round[0]);
+
+            print("Checking end Point");
+            ep = check_terminal_position(goalArray[-1], player_array_current_round[-1]);
+
+            compare_path = compare_two_paths(goalArray, player_array_current_round);
+            print("Closeness number is " + str(compare_path));
+
+            length_difference = abs(sum_given_array(goalArray) - sum_given_array(player_array_current_round));
+            print("Difference in length is: " + str(length_difference));
+
+            compare_path_with_deletions = compare_two_path_with_deletions(goalArray, player_array_current_round);
+            print("Closeness number when comparing with advanced deletions is " + str(compare_path_with_deletions));
+
+            centroid_number = compare_two_centroid_arrays(centroid_goal, centroid_player);
+            print("Centroid closeness number is " + str(centroid_number));
+
+            scores = 0.0;
+            print("--------------------------------------------------------------------------------------------")
+            print("--------------------------------------------------------------------------------------------")
+            print("Start Point Analysis with a tolerance of 50")
+            if sp < 50:
+                print("SIMILAR");
+                scores += 0.5
+            else:
+                print("NOT SIMILAR");
+            print("--------------------------------------------------------------------------------------------")
+            print("End Point Analysis with a tolerance of 50")
+            if ep < 50:
+                print("SIMILAR");
+                scores += 0.5
+            else:
+                print("NOT SIMILAR");
+            print("--------------------------------------------------------------------------------------------")
+            print("Basic Point matching analysis with a tolerance of 50");
+            if compare_path < 50:
+                print("SIMILAR");
+                scores += 0.5
+            else:
+                print("NOT SIMILAR");
+            print("--------------------------------------------------------------------------------------------")
+            print("Basic length analysis with a tolerance of 150");
+            if length_difference < 150:
+                print("SIMILAR");
+                scores += 0.5
+            else:
+                print("NOT SIMILAR");
+            print("--------------------------------------------------------------------------------------------")
+            print("Slightly advanced Point matching analysis with a tolerance of 30");
+            if compare_path_with_deletions < 30:
+                print("SIMILAR");
+                scores += 1.0
+            else:
+                print("NOT SIMILAR");
+            print("--------------------------------------------------------------------------------------------")
+            print("Centroid analysis with a tolerance of 40");
+            if centroid_number < 40:
+                print("SIMILAR");
+                scores += 1.0;
+
+            else:
+                print("NOT SIMILAR");
+            print("--------------------------------------------------------------------------------------------")
+            print("--------------------------------------------------------------------------------------------")
+
+            print("Final Similarity Score is: " + str(scores) + " / 4");
+            nameOfPlot = coordinateAddress + "_" + str(round_number);
+            Extractor.plot_array(goalArray, player_array_current_round, centroid_goal, centroid_player, nameOfPlot);
+
+            fN = "AnalysisFile.txt";
+            f2W = open(fN, 'a');
+            f2W.write(coordinateAddress[32:-4] + " " + str(round_number) + " " + array_of_rounds[round_number] + " " +
+                      str(round(sp, 4)) + " " + str(round(ep, 4)) + " " + str(round(compare_path, 4)) + " " +
+                      str(round(length_difference, 4)) + " " + str(round(compare_path_with_deletions, 4)) + " " + str(round(centroid_number, 4)) +
+                      " " + str(scores) + " " + "/4.0 \n")
+            f2W.close();
+        print("***************************************************************************");
 
 
 
+# mainAnalysis(goalKeyAddress, coordinateAddress)
 
+coordinates = "allData/coordinates/"
+goalKeys = "allData/goalKey/"
+
+
+coords = [f for f in listdir(coordinates) if isfile(join(coordinates, f))];
+goals = [f for f in listdir(goalKeys) if isfile(join(goalKeys, f))];
+
+coords.sort();
+goals.sort();
+
+coords = [coordinates + e  for e in coords];
+goals = [goalKeys + e  for e in goals];
+
+fileName = "AnalysisFile.txt";
+fileToWrite =  open(fileName,'w');
+fileToWrite.write("fileName Round GoalNumber StartPointDifference EndPointDifference SimplePointMatchingDistance LengthDifference AdvancedPointMatchingDistance CentroidDistance FinalSimilarityScoreBasedOnSubjectiveHeuristics \n");
+fileToWrite.close();
+
+for i in range(len(coords)):
+    print(coords[i]);
+    print(goals[i]);
+    print("----------------")
+    mainAnalysis(goals[i], coords[i]);
