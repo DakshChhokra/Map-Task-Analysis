@@ -95,6 +95,7 @@ class Extractor:
             p+=1
 
         plt.savefig("analysisImage/" + nameOfImage + ".png", dpi=100);
+        plt.close();
         # plt.show()
 
 

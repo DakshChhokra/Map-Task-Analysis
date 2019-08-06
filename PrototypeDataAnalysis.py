@@ -42,37 +42,33 @@ def compare_two_paths(goal, player):
     return sum(small_distance_array)/len(small_distance_array);
 
 
-def compare_two_path_with_deletions(arr1, arr2):
-    goal = arr1[:]
-    player = arr2[:]
-    smallestDistance = []
-
-    for x in range(len(goal)):
-        current_goal_point = goal[x];
-        current_smallest_distance = 9999;
-        current_smallest_point = None;
-        for y in range(len(player)):
-            if len(player) > 0:
-                current_player_point = player[y];
-                temp_distance = distance(current_goal_point[0], current_player_point[0], current_goal_point[1], current_player_point[1]);
-                if temp_distance < current_smallest_distance:
-                    current_smallest_distance =  temp_distance;
-                    current_smallest_point = y;
-        else:
-            break;
-    smallestDistance.append(current_smallest_distance);
-    player.pop(current_smallest_point);
-
-    return sum(smallestDistance)/len(smallestDistance);
-
-
+# def compare_two_path_with_deletions(arr1, arr2):
+#     goal = arr1[:]
+#     player = arr2[:]
+#     smallestDistance = []
+#
+#     for x in range(len(goal)):
+#         current_goal_point = goal[x];
+#         current_smallest_distance = 9999;
+#         current_smallest_point = None;
+#         for y in range(len(player)):
+#             if len(player) > 0:
+#                 current_player_point = player[y];
+#                 temp_distance = distance(current_goal_point[0], current_player_point[0], current_goal_point[1], current_player_point[1]);
+#                 if temp_distance < current_smallest_distance:
+#                     current_smallest_distance =  temp_distance;
+#                     current_smallest_point = y;
+#         else:
+#             break;
+#     smallestDistance.append(current_smallest_distance);
+#     player.pop(current_smallest_point);
+#
+#     return sum(smallestDistance)/len(smallestDistance);
 
 
+def distance_short(a1, a2):
+    return distance(a1[0], a2[0], a1[1], a2[1]);
 
-def distance(xi,xii,yi,yii):
-    sq1 = (xi-xii)*(xi-xii)
-    sq2 = (yi-yii)*(yi-yii)
-    return math.sqrt(sq1 + sq2)
 
 
 def centeroid_python(data):
@@ -136,8 +132,88 @@ def check_terminal_position(p1, p2):
     print("distance  between terminal points is " + str(distance_point));
     return  distance_point;
 
+def getAverage(array):
+    return sum(array)/len(array);
+
+def advancedPointMatchingBothWays(a1, a2):
+    arr1 = a1.copy();
+    arr2 = a2.copy();
+    a1a2 = []
+    for x in range(len(arr1)):
+        minDistance = 100000;
+        minPointIndex = -1;
+        second_loop = len(arr2);
+        if second_loop > 0:
+            for y in range(second_loop):
+                comparison = distance_short(arr1[x], arr2[y]);
+                if comparison < minDistance:
+                    minDistance = comparison;
+                    minPointIndex = y;
+            print("Closest point to {0}, is {1}. Distance between them is {2}".format(arr1[x], arr2[minPointIndex],
+                                                                                      minDistance));
+            a1a2.append(minDistance);
+            arr2.pop(minPointIndex);
+
+
+
+    arr1 = a1.copy();
+    arr2 = a2.copy();
+    a2a1 = []
+
+    for x in range(len(arr2)):
+        minDistance = 100000;
+        minPointIndex = -1;
+        second_loop = len(arr1);
+        if second_loop > 0:
+            for y in range(second_loop):
+                comparison = distance_short(arr2[x], arr1[y]);
+                if comparison < minDistance:
+                    minDistance = comparison;
+                    minPointIndex = y;
+            print("Closest point to {0}, is {1}. Distance between them is {2}".format(arr2[x], arr1[minPointIndex],
+                                                                                      minDistance));
+            a2a1.append(minDistance);
+            arr1.pop(minPointIndex);
+
+    arr1 = a1.copy();
+    arr2 = a2[::-1];
+    a2a1reversed = []
+
+    for x in range(len(arr2)):
+        minDistance = 100000;
+        minPointIndex = -1;
+        second_loop = len(arr1);
+        if second_loop > 0:
+            for y in range(second_loop):
+                comparison = distance_short(arr2[x], arr1[y]);
+                if comparison < minDistance:
+                    minDistance = comparison;
+                    minPointIndex = y;
+            print("Closest point to {0}, is {1}. Distance between them is {2}".format(arr2[x], arr1[minPointIndex],
+                                                                                      minDistance));
+            a2a1reversed.append(minDistance);
+            arr1.pop(minPointIndex);
+
+    return getAverage(a1a2), getAverage(a2a1), getAverage(a2a1reversed);
+
+
 goalKeyAddress = "goal_key_4.20.2019_20.24.txt";
 coordinateAddress = "coordinates_4.20.2019_20.24.txt";
+
+all_the_data = {
+                'name':[], 'roundNumber':[], 'goalNumber':[],
+                'startPoint':[],
+                'endPoint':[],
+                'terminalPointAverage':[],
+                'basicPointMatching':[],
+                'lengthDifference':[],
+                'apmGoalUser':[],
+                'apmUserGoal':[],
+                'apmUserGoalReversed':[],
+                'centroidDistance':[],
+                'scoreBasedOnOG6Parameters':[]
+                }
+
 def mainAnalysis(goalKeyAddress, coordinateAddress):
     file = open(goalKeyAddress, "r")
 
@@ -207,8 +283,8 @@ def mainAnalysis(goalKeyAddress, coordinateAddress):
             length_difference = abs(sum_given_array(goalArray) - sum_given_array(player_array_current_round));
             print("Difference in length is: " + str(length_difference));
 
-            compare_path_with_deletions = compare_two_path_with_deletions(goalArray, player_array_current_round);
-            print("Closeness number when comparing with advanced deletions is " + str(compare_path_with_deletions));
+            compare_path_with_deletions = advancedPointMatchingBothWays(goalArray, player_array_current_round);
+            print("Closeness number when comparing with advanced deletions is " + str(compare_path_with_deletions[0]));
 
             centroid_number = compare_two_centroid_arrays(centroid_goal, centroid_player);
             print("Centroid closeness number is " + str(centroid_number));
@@ -245,7 +321,7 @@ def mainAnalysis(goalKeyAddress, coordinateAddress):
                 print("NOT SIMILAR");
             print("--------------------------------------------------------------------------------------------")
             print("Slightly advanced Point matching analysis with a tolerance of 30");
-            if compare_path_with_deletions < 30:
+            if compare_path_with_deletions[0] < 30:
                 print("SIMILAR");
                 scores += 1.0
             else:
@@ -262,17 +338,34 @@ def mainAnalysis(goalKeyAddress, coordinateAddress):
             print("--------------------------------------------------------------------------------------------")
 
             print("Final Similarity Score is: " + str(scores) + " / 4");
-            nameOfPlot = coordinateAddress + "_" + str(round_number);
-            Extractor.plot_array(goalArray, player_array_current_round, centroid_goal, centroid_player, nameOfPlot);
+            nameOfPlot = coordinateAddress[32:-4] + "_" +  str(array_of_rounds[round_number]);
+            # Extractor.plot_array(goalArray, player_array_current_round, centroid_goal, centroid_player, nameOfPlot);
 
             fN = "AnalysisFile.txt";
             f2W = open(fN, 'a');
             f2W.write(coordinateAddress[32:-4] + " " + str(round_number) + " " + array_of_rounds[round_number] + " " +
                       str(round(sp, 4)) + " " + str(round(ep, 4)) + " " + str(round(compare_path, 4)) + " " +
-                      str(round(length_difference, 4)) + " " + str(round(compare_path_with_deletions, 4)) + " " + str(round(centroid_number, 4)) +
+                      str(round(length_difference, 4)) + " " + str(round(compare_path_with_deletions[0], 4)) + " " + str(round(centroid_number, 4)) +
                       " " + str(scores) + " " + "/4.0 \n")
             f2W.close();
-        print("***************************************************************************");
+
+
+            all_the_data['name'].append(coordinateAddress[32:-4]);
+            all_the_data['roundNumber'].append(round_number);
+            all_the_data['goalNumber'].append(array_of_rounds[round_number]);
+            all_the_data['startPoint'].append(sp);
+            all_the_data['endPoint'].append(ep);
+            all_the_data['terminalPointAverage'].append( (ep + sp)/2.0 );
+            all_the_data['basicPointMatching'].append(compare_path);
+            all_the_data['lengthDifference'].append(length_difference);
+            all_the_data['apmGoalUser'].append(compare_path_with_deletions[0]);
+            all_the_data['apmUserGoal'].append(compare_path_with_deletions[1]);
+            all_the_data['apmUserGoalReversed'].append(compare_path_with_deletions[2]);
+            all_the_data['centroidDistance'].append(centroid_number);
+            all_the_data['scoreBasedOnOG6Parameters'].append(scores);
+
+    print("***************************************************************************");
+
 
 
 
@@ -280,6 +373,13 @@ def mainAnalysis(goalKeyAddress, coordinateAddress):
 
 coordinates = "allData/coordinates/"
 goalKeys = "allData/goalKey/"
+
+
+
+
+
+
+
 
 
 coords = [f for f in listdir(coordinates) if isfile(join(coordinates, f))];
@@ -301,3 +401,24 @@ for i in range(len(coords)):
     print(goals[i]);
     print("----------------")
     mainAnalysis(goals[i], coords[i]);
+
+
+
+
+print(all_the_data);
+
+# Store data (serialize)
+with open('dictionaryAnalysis.pickle', 'wb') as handle:
+    pickle.dump(all_the_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+# Load data (deserialize)
+with open('dictionaryAnalysis.pickle', 'rb') as handle:
+    unserialized_data = pickle.load(handle)
+
+print(all_the_data == unserialized_data)
+
+
+
+
+
+
